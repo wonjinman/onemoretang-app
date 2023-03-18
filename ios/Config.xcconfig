@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  nextruck-trucker-webapp
+//
+//  Created by 김치호 on 2023/03/18.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include? "tmp.xcconfig"
