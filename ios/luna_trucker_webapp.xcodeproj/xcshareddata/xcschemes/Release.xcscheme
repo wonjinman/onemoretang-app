@@ -15,7 +15,7 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "&#x110f;&#x1162;&#x1105;&#x1175; &#x1100;&#x1175;&#x1109;&#x1161;&#x1102;&#x1175;&#x11b7;&#x110b;&#x116d;&#x11bc;.app"
+                     BuildableName = "&#x1112;&#x1161;&#x11ab;&#x1110;&#x1161;&#x11bc;&#x1103;&#x1165;.app"
                      BlueprintName = "luna_trucker_webapp"
                      ReferencedContainer = "container:luna_trucker_webapp.xcodeproj">
                   </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "&#x110f;&#x1162;&#x1105;&#x1175; &#x1100;&#x1175;&#x1109;&#x1161;&#x1102;&#x1175;&#x11b7;&#x110b;&#x116d;&#x11bc;.app"
+               BuildableName = "&#x1112;&#x1161;&#x11ab;&#x1110;&#x1161;&#x11bc;&#x1103;&#x1165;.app"
                BlueprintName = "luna_trucker_webapp"
                ReferencedContainer = "container:luna_trucker_webapp.xcodeproj">
             </BuildableReference>
@@ -78,7 +78,7 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "&#x110f;&#x1162;&#x1105;&#x1175; &#x1100;&#x1175;&#x1109;&#x1161;&#x1102;&#x1175;&#x11b7;&#x110b;&#x116d;&#x11bc;.app"
+                     BuildableName = "&#x1112;&#x1161;&#x11ab;&#x1110;&#x1161;&#x11bc;&#x1103;&#x1165;.app"
                      BlueprintName = "luna_trucker_webapp"
                      ReferencedContainer = "container:luna_trucker_webapp.xcodeproj">
                   </BuildableReference>
@@ -91,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "&#x110f;&#x1162;&#x1105;&#x1175; &#x1100;&#x1175;&#x1109;&#x1161;&#x1102;&#x1175;&#x11b7;&#x110b;&#x116d;&#x11bc;.app"
+            BuildableName = "&#x1112;&#x1161;&#x11ab;&#x1110;&#x1161;&#x11bc;&#x1103;&#x1165;.app"
             BlueprintName = "luna_trucker_webapp"
             ReferencedContainer = "container:luna_trucker_webapp.xcodeproj">
          </BuildableReference>
@@ -108,7 +108,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "&#x110f;&#x1162;&#x1105;&#x1175; &#x1100;&#x1175;&#x1109;&#x1161;&#x1102;&#x1175;&#x11b7;&#x110b;&#x116d;&#x11bc;.app"
+            BuildableName = "&#x1112;&#x1161;&#x11ab;&#x1110;&#x1161;&#x11bc;&#x1103;&#x1165;.app"
             BlueprintName = "luna_trucker_webapp"
             ReferencedContainer = "container:luna_trucker_webapp.xcodeproj">
          </BuildableReference>

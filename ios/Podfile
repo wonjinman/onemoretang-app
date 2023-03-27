@@ -21,17 +21,17 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'nextruck-trucker-webapp' do
+target 'luna_trucker_webapp' do
   config = use_native_modules!
-  
+
   pod 'react-native-config', :path => '../node_modules/react-native-config'
   pod 'react-native-config/Extension', :path => '../node_modules/react-native-config'
   pod 'GoogleUtilities', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
-  
+
   # Flags change depending on the env values.
   flags = get_default_flags()
-  
+
   use_react_native!(
   :path => config[:reactNativePath],
   # Hermes is now enabled by default. Disable by setting this flag to false.
@@ -47,19 +47,19 @@ target 'nextruck-trucker-webapp' do
   # An absolute path to your application root.
   :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  
-  target 'nextruck-trucker-webappTests' do
+
+  target 'luna_trucker_webappTests' do
     inherit! :complete
     # Pods for testing
   end
-  
+
   ENVFILES = {
     'Debug' => '$(PODS_ROOT)/../../.env.local',
     'Local' => '$(PODS_ROOT)/../../.env.local',
     'beta' => '$(PODS_ROOT)/../../.env.beta',
     'Release' => '$(PODS_ROOT)/../../.env.prod',
   }
-  
+
   post_install do |installer|
     react_native_post_install(
       installer,
