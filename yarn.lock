@@ -1738,6 +1738,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/image-editor/-/image-editor-2.3.0.tgz#8ac6c3691fd2c762d2abeb84c01a3b201bac3b1e"
   integrity sha512-+UJY8WkTkfSkjoU5blQnEI7tTg11jJLoM+YojjiQpEopUaRlYQU4SZ9Zd6F6wWfvc9bjvIeMY6FlKuESK/q4fQ==
 
+"@react-native-firebase/analytics@^17.4.0":
+  version "17.4.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-17.4.0.tgz#b8689acb29c205e4ce9dc8422078081bcdfd9dcc"
+  integrity sha512-89t+FmyKq3WyXYXqJqOgxsA/zwom3VoBaM3R4c5GfAMYD3QZHyyUGS1OMMuCqVaNV2MnoOi+1kEJEjLFxKIHbQ==
+
 "@react-native-firebase/app@^17.3.2":
   version "17.3.2"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-17.3.2.tgz#c39dd34f5389ff65845c5d67313bbf2371275a8f"

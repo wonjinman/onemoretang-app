@@ -5,6 +5,7 @@ import { getStatusBarHeight } from 'react-native-safearea-height'
 import { ENV } from '../../ENV'
 import { useAuthStore } from '../../../driver/stores'
 import { navigation } from '../../navigation'
+import analytics from "@react-native-firebase/analytics";
 
 type WebViewTemplate = {} & WebViewProps
 /**
@@ -64,6 +65,10 @@ const WebViewTemplate = (props: WebViewTemplate) => {
 		}
 		if (event.method === 'NAVIGATE_NAVIGATE') {
 			navigation.navigate(event.navigation.name, event.navigation.params)
+			return
+		}
+		if(event.method === "ANALYTICS_LOG") {
+			analytics().logEvent(event.log.name, event.log.params)
 			return
 		}
 	}

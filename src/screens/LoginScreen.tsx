@@ -7,6 +7,7 @@ import { useUserStore } from '../driver/stores'
 import { useLogin } from '../driver/api/hooks'
 import { callToManager } from '../common/utils'
 import { navigation } from '../common/navigation'
+import analytics from '@react-native-firebase/analytics';
 
 const LoginScreen = () => {
 	const phoneNumberInputRef = useRef<TextInput>(null)
