@@ -9,6 +9,8 @@ apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.grad
 
 // firebase
 apply plugin: 'com.google.gms.google-services'
+// crashlytics
+apply plugin: 'com.google.firebase.crashlytics'
 
 import com.android.build.OutputFile
 
