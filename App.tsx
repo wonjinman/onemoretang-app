@@ -14,6 +14,7 @@ import UploadReceiptScreen from './src/screens/UploadReceiptScreen'
 import GetPhotoScreen from './src/screens/GetPhotoScreen'
 import remoteConfig from '@react-native-firebase/remote-config'
 import DeviceInfo from 'react-native-device-info'
+import * as Sentry from '@sentry/react-native'
 
 export type MainStack = {
 	LoginScreen: undefined
@@ -175,4 +176,11 @@ function App(): JSX.Element {
 	)
 }
 
-export default App
+Sentry.init({
+	dsn: 'https://f269954b072346aaa3ee86ddf40391c4@o1251624.ingest.sentry.io/4504949419737088',
+	// Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+	// We recommend adjusting this value in production.
+	tracesSampleRate: 1.0,
+})
+
+export default Sentry.wrap(App)
