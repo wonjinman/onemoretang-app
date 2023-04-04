@@ -1,19 +1,20 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import WebView, { WebViewMessageEvent, WebViewProps } from 'react-native-webview'
+import analytics from '@react-native-firebase/analytics'
+import DeviceInfo from 'react-native-device-info'
 import { StackActions } from '@react-navigation/native'
 import { getStatusBarHeight } from 'react-native-safearea-height'
 import { ENV } from '../../ENV'
 import { useAuthStore } from '../../../driver/stores'
 import { navigation } from '../../navigation'
-import analytics from '@react-native-firebase/analytics'
 import { storage } from 'common/storage/storage'
+import { getDeviceInfo, getDeviceKey, tryGetPhoneNumber } from 'common/helpers'
 
-type WebViewTemplate = {} & WebViewProps
 /**
  * 우리 웹에만 사용할 것
  * 로그인이 완료되었다고 가정했을때임.
  */
-const WebViewTemplate = (props: WebViewTemplate) => {
+const WebViewTemplate = (props: WebViewProps) => {
 	const webViewRef = useRef<WebView>(null)
 	const [isLoad, setIsLoad] = useState<boolean>(false)
 	const authStore = useAuthStore()
@@ -72,6 +73,18 @@ const WebViewTemplate = (props: WebViewTemplate) => {
 
 			case 'STORAGE_REMOVE':
 				return storage.remove(event.key)
+
+			case 'GET_DEVICE_INFO':
+				return getDeviceInfo()
+
+			case 'GET_DEVICE_KEY':
+				return getDeviceKey()
+
+			case 'GET_PHONE_NUMBER':
+				return tryGetPhoneNumber()
+
+			case 'LOGIN':
+				return useAuthStore.getState().setToken(event.token)
 		}
 	}
 
