@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import WebView, { WebViewProps } from 'react-native-webview'
+import WebView, { WebViewMessageEvent, WebViewProps } from 'react-native-webview'
 import { StackActions } from '@react-navigation/native'
 import { getStatusBarHeight } from 'react-native-safearea-height'
 import { ENV } from '../../ENV'
 import { useAuthStore } from '../../../driver/stores'
 import { navigation } from '../../navigation'
-import analytics from "@react-native-firebase/analytics";
+import analytics from '@react-native-firebase/analytics'
+import { storage } from 'common/storage/storage'
 
 type WebViewTemplate = {} & WebViewProps
 /**
@@ -25,51 +26,52 @@ const WebViewTemplate = (props: WebViewTemplate) => {
 		setWebviewKey(webviewKey + 1)
 	}
 	// 앱에서 웹 메시지 받기
-	const onMessage = (e: any) => {
+	const onMessage = (e: WebViewMessageEvent) => {
 		const event = JSON.parse(e.nativeEvent.data)
 
 		/**
 		 * 새 네비게이션 탭
 		 * 푸시 기능 수정 필요
 		 */
-		if (event.method === 'NAVIGATE_PUSH') {
-			navigation.push(event.navigation.name, event.navigation.params)
-			return
-		}
-		// Console
-		if (event.method === 'CONSOLE_LOG') {
-			console.log(
-				'BY WEB \n',
-				`URL: ${JSON.stringify(SOURCE)}\n`,
-				'\n******************************************************\n',
-				...event.data,
-				'\n******************************************************\n',
-			)
-			return
-		}
-		if (event.method === 'LOGOUT') {
-			useAuthStore.getState().removeToken()
-			return
-		}
-		if (event.method === 'REQUEST_TOKEN') {
-			initialize()
-			return
-		}
-		if (event.method === 'NAVIGATE_HOME') {
-			navigation.setRoot('HomeScreen')
-			return
-		}
-		if (event.method === 'NAVIGATE_GOBACK') {
-			navigation.goBack()
-			return
-		}
-		if (event.method === 'NAVIGATE_NAVIGATE') {
-			navigation.navigate(event.navigation.name, event.navigation.params)
-			return
-		}
-		if(event.method === "ANALYTICS_LOG") {
-			analytics().logEvent(event.log.name, event.log.params)
-			return
+		switch (event.method) {
+			case 'NAVIGATE_PUSH':
+				return navigation.push(event.navigation.name, event.navigation.params)
+
+			case 'CONSOLE_LOG':
+				return console.log(
+					'BY WEB \n',
+					`URL: ${JSON.stringify(SOURCE)}\n`,
+					'\n******************************************************\n',
+					...event.data,
+					'\n******************************************************\n',
+				)
+
+			case 'LOGOUT':
+				return useAuthStore.getState().removeToken()
+
+			case 'REQUEST_TOKEN':
+				return initialize()
+
+			case 'NAVIGATE_HOME':
+				return navigation.setRoot('HomeScreen')
+
+			case 'NAVIGATE_GOBACK':
+				return navigation.goBack()
+
+			case 'NAVIGATE_NAVIGATE':
+				return navigation.navigate(event.navigation.name, event.navigation.params)
+
+			case 'ANALYTICS_LOG':
+				return analytics().logEvent(event.log.name, event.log.params)
+
+			case 'STORAGE_SET':
+				return storage.set(event.key, event.value)
+
+			case 'STORAGE_GET':
+				return storage.get(event.key)
+
+			case 'STORAGE_REMOVE':
+				return storage.remove(event.key)
 		}
 	}
 
