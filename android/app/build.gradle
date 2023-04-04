@@ -5,6 +5,11 @@ apply plugin: "com.facebook.react"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 // react-native-config 설정
+project.ext.envConfigFiles = [
+    beta: ".env.beta",
+    prod: ".env.prod",
+    anothercustombuild: ".env",
+]
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 // firebase
