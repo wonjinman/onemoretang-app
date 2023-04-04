@@ -114,11 +114,11 @@ function App(): JSX.Element {
 					screenOptions={{
 						headerBackTitleVisible: false,
 					}}>
-					<Stack.Screen
-						name={'LoginScreen'}
-						component={LoginScreen}
-						options={{ headerShown: false, headerBackTitleVisible: false }}
-					/>
+					{/*<Stack.Screen*/}
+					{/*	name={'LoginScreen'}*/}
+					{/*	component={LoginScreen}*/}
+					{/*	options={{ headerShown: false, headerBackTitleVisible: false }}*/}
+					{/*/>*/}
 					<Stack.Screen
 						name={'HomeScreen'}
 						component={HomeScreen}
