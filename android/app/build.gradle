@@ -17,6 +17,9 @@ apply plugin: 'com.google.gms.google-services'
 // crashlytics
 apply plugin: 'com.google.firebase.crashlytics'
 
+// codepush
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -120,7 +123,7 @@ android {
             // [MGS] 이 줄이 없으면 Error in getting binary resources modified time 에러가 뜨면서 업데이트를 받아와도 반영이 안 된다
             // [MGS] 코드푸시가 동작하지 않을 때는 터미널의 에러로그를 살피고 checkForUpdate() 등을 활용해 상황을 진단하는 것이 도움이 된다.
             // https://github.com/microsoft/react-native-code-push/issues/1961#issuecomment-710698621
-//             resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
+            resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
         }
 
     splits {
@@ -169,13 +172,13 @@ android {
             applicationIdSuffix ".beta"
             resValue "string", "app_name", "@string/app_name_beta"
             resValue "string", "locationmanager_license", "15be34736268cba8051753b494e83bab874590d24f7cd7872fe2579d10abf2d0"
-            resValue "string", "CodePushDeploymentKey", '"j4fz-A_cQjOyLQdRBzQencHbDFx9epf5mM2Cf"'
+            resValue "string", "CodePushDeploymentKey", '"0TuIgv4yiVM5rTsM03lkUB9vG1pZlAIgwMP3H"'
         }
         prod {
             dimension "environment"
             resValue "string", "app_name", "@string/app_name_release"
             resValue "string", "locationmanager_license", "ce5a84160114d0e275c92626800cb8a63adc4a4ef0a105c67acd99bc61063017"
-            resValue "string", "CodePushDeploymentKey", '"FMnHvSyYd8PE-FPhmnEwwLGvCUJEWW4yc0oTt"'
+            resValue "string", "CodePushDeploymentKey", '"cPlvJk6JUieUtIibB-4Ha8xs7BCGKlQJhJhtj"'
         }
     }
 

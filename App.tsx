@@ -9,7 +9,7 @@ import { _navigationRef, setIsNavigationReady } from './src/common/navigation'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import HomeScreen from './src/screens/HomeScreen'
 import WebViewScreen from './src/screens/WebViewScreen'
-import {Alert, Linking, Platform, StyleSheet} from 'react-native'
+import { Alert, Linking, Platform, StyleSheet } from 'react-native'
 import UploadReceiptScreen from './src/screens/UploadReceiptScreen'
 import GetPhotoScreen from './src/screens/GetPhotoScreen'
 import remoteConfig from '@react-native-firebase/remote-config'
@@ -48,7 +48,7 @@ function App(): JSX.Element {
 
 	const checkVersion = async () => {
 		await remoteConfig()
-			.setConfigSettings({ minimumFetchIntervalMillis: 10})
+			.setConfigSettings({ minimumFetchIntervalMillis: 10 })
 			.then(() => remoteConfig().fetchAndActivate())
 			.then(fetchedRemotely => {
 				if (fetchedRemotely) {
@@ -59,8 +59,6 @@ function App(): JSX.Element {
 					)
 				}
 			})
-
-
 
 		const minimumVersion = remoteConfig().getValue('minimumVersion').asString()
 		const currentVersion = DeviceInfo.getVersion()
@@ -86,18 +84,17 @@ function App(): JSX.Element {
 
 		const isAllow = isAllowVersion(minVersionArray, currentVersionArray)
 
-
 		console.log(isAllow)
 		if (!isAllow) {
 			Alert.alert('업데이트가 필요합니다.', '', [
 				{
 					onPress: () =>
 						//TODO ios 만들때 url 분리해야함.
-					{
-						if (Platform.OS === 'android') {
-							Linking.openURL('https://play.google.com/store/apps/details?id=io.nextruck.trucker')
-						}
-					},
+						{
+							if (Platform.OS === 'android') {
+								Linking.openURL('https://play.google.com/store/apps/details?id=io.nextruck.trucker')
+							}
+						},
 					text: '업데이트 하기',
 				},
 			])
@@ -107,6 +104,7 @@ function App(): JSX.Element {
 	useEffect(() => {
 		setIsNavigationReady(true)
 		getTokenFromStorage()
+		checkVersion()
 	}, [])
 
 	return (
@@ -116,11 +114,11 @@ function App(): JSX.Element {
 					screenOptions={{
 						headerBackTitleVisible: false,
 					}}>
-					<Stack.Screen
-						name={'LoginScreen'}
-						component={LoginScreen}
-						options={{ headerShown: false, headerBackTitleVisible: false }}
-					/>
+					{/*<Stack.Screen*/}
+					{/*	name={'LoginScreen'}*/}
+					{/*	component={LoginScreen}*/}
+					{/*	options={{ headerShown: false, headerBackTitleVisible: false }}*/}
+					{/*/>*/}
 					<Stack.Screen
 						name={'HomeScreen'}
 						component={HomeScreen}

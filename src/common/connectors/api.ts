@@ -17,7 +17,7 @@ const APIErrorMessage = {
 
 export class APIConnector {
 	private _apiInstance: AxiosInstance = axios.create({
-		baseURL: ENV.API_SERVER_BASE_URL,
+		baseURL: ENV.API_SERVER_NODE_BASE_URL,
 		timeout: 3000,
 		headers: this.commonHeaders,
 	})

@@ -18,12 +18,13 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 		const token = await storage.get(TOKEN_KEY)
 		if (token !== null && token.length > 0) {
 			set({ accessToken: token })
-			navigation.setRoot('HomeScreen')
+			// navigation.setRoot('HomeScreen')
 			//token 꺼낸 다음, driverAccount fetch해오기. zustand에서 set한 뒤 호출했기 때문에 token이 있는 상황.
 			useUserStore.getState().updateProfileFromToken()
-		} else {
-			navigation.setRoot('LoginScreen')
 		}
+		// else {
+		// 	navigation.setRoot('LoginScreen')
+		// }
 	},
 	removeToken: () => {
 		// TODO: Store 초기화 & storage 초기화 & navigation까지 하나에 모여있는 게 좋은 코드인가?
