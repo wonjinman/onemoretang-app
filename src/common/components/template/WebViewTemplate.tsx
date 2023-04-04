@@ -26,6 +26,11 @@ const WebViewTemplate = (props: WebViewProps) => {
 	const reload = () => {
 		setWebviewKey(webviewKey + 1)
 	}
+
+	const postMessage = (data: any) => {
+		webViewRef?.current?.postMessage(JSON.stringify(data))
+	}
+
 	// 앱에서 웹 메시지 받기
 	const onMessage = (e: WebViewMessageEvent) => {
 		const event = JSON.parse(e.nativeEvent.data)
@@ -69,33 +74,54 @@ const WebViewTemplate = (props: WebViewProps) => {
 				return storage.set(event.key, event.value)
 
 			case 'STORAGE_GET':
-				return storage.get(event.key)
+				return storage.get(event.key).then(data =>
+					postMessage({
+						method: 'STORAGE_GET_RESULT',
+						data,
+					}),
+				)
 
 			case 'STORAGE_REMOVE':
 				return storage.remove(event.key)
 
 			case 'GET_DEVICE_INFO':
-				return getDeviceInfo()
+				return getDeviceInfo().then(data =>
+					postMessage({
+						method: 'GET_DEVICE_INFO_RESULT',
+						data,
+					}),
+				)
 
 			case 'GET_DEVICE_KEY':
-				return getDeviceKey()
+				return postMessage({
+					method: 'GET_DEVICE_KEY_RESULT',
+					data: getDeviceKey(),
+				})
 
 			case 'GET_PHONE_NUMBER':
-				return tryGetPhoneNumber()
+				return postMessage({
+					method: 'GET_PHONE_NUMBER_RESULT',
+					data: tryGetPhoneNumber(),
+				})
 
 			case 'LOGIN':
 				return useAuthStore.getState().setToken(event.token)
+
+			case 'REMOVE_TOKEN':
+				return useAuthStore.getState().removeToken()
 		}
 	}
 
 	const initialize = () => {
-		webViewRef?.current?.postMessage(
-			JSON.stringify({
-				method: 'INITIALIZE',
+		postMessage({
+			method: 'INITIALIZE',
+			data: {
 				token: authStore.accessToken,
-				serverBaseURL: ENV.API_SERVER_SETTLEMENT_BASE_URL,
-			}),
-		)
+				apiServerBaseURL: ENV.API_SERVER_BASE_URL,
+				mainNodeApiServerBaseURL: ENV.API_SERVER_NODE_BASE_URL,
+				mainSpringApiServerBaseURL: ENV.API_SERVER_SPRING_BASE_URL,
+			},
+		})
 	}
 
 	return (
