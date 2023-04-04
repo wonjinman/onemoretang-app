@@ -9,6 +9,7 @@ import { useAuthStore } from '../../../driver/stores'
 import { navigation } from '../../navigation'
 import { storage } from 'common/storage/storage'
 import { getDeviceInfo, getDeviceKey, tryGetPhoneNumber } from 'common/helpers'
+import UserAgent from 'react-native-user-agent'
 
 /**
  * 우리 웹에만 사용할 것
@@ -134,6 +135,7 @@ const WebViewTemplate = (props: WebViewProps) => {
 			onLoadEnd={() => setIsLoad(true)}
 			key={webviewKey}
 			onContentProcessDidTerminate={reload}
+			userAgent={`${UserAgent.getUserAgent()} WEBAPP`}
 		/>
 	)
 }

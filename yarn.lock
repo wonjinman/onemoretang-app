@@ -1738,10 +1738,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/image-editor/-/image-editor-2.3.0.tgz#8ac6c3691fd2c762d2abeb84c01a3b201bac3b1e"
   integrity sha512-+UJY8WkTkfSkjoU5blQnEI7tTg11jJLoM+YojjiQpEopUaRlYQU4SZ9Zd6F6wWfvc9bjvIeMY6FlKuESK/q4fQ==
 
-"@react-native-firebase/analytics@^17.4.0":
-  version "17.4.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-17.4.0.tgz#b8689acb29c205e4ce9dc8422078081bcdfd9dcc"
-  integrity sha512-89t+FmyKq3WyXYXqJqOgxsA/zwom3VoBaM3R4c5GfAMYD3QZHyyUGS1OMMuCqVaNV2MnoOi+1kEJEjLFxKIHbQ==
+"@react-native-firebase/analytics@^17.3.2":
+  version "17.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-17.4.1.tgz#093da22912ec4d72ae83c482c1237b50a57e2bc2"
+  integrity sha512-ihhWVOki9nt3xHYaaftm7zC0hV89/M1H6+zGrnwLyzsqC6ljzqFBvqq10swZ7MtMOsKkNP+mjdAlAHycN/Fvjw==
 
 "@react-native-firebase/app@^17.3.2":
   version "17.3.2"
@@ -1752,7 +1752,7 @@
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/crashlytics@^17.4.1":
+"@react-native-firebase/crashlytics@^17.3.2":
   version "17.4.1"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/crashlytics/-/crashlytics-17.4.1.tgz#38850442ca7d7dada60951b41f1572795067ead5"
   integrity sha512-brpc/KI9woDeyaZovdWiwL6/A7P9kVqw2XbbR5GkFswwr2S6o8wDfw5ACOljvG1GTSErL8oI8wo3tHJ4HLcGZg==
@@ -8209,6 +8209,11 @@ react-native-screens@^3.20.0:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-user-agent@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-user-agent/-/react-native-user-agent-2.3.1.tgz#81308be0026d9d4e50cc8f1126068d58e6745868"
+  integrity sha512-AIFr1VgJHwgWmMwCOmIGxuBeAaADlouXKc10UyR4fzWneUbt5uIJIoRu2oExlfCtiT8IyCp106khDD5vx7RUjw==
 
 react-native-vector-icons@^9.2.0:
   version "9.2.0"
