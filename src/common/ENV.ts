@@ -20,7 +20,6 @@ const ONESIGNAL_APP_ID = Config.ONESIGNAL_APP_ID
 		throw new Error(message)
 	}
 })()
-
 export const ENV = {
 	PROFILE: (__DEV__ ? `dev_${Config.PROFILE}` : Config.PROFILE) as Profile,
 	IS_PRODUCTION: !__DEV__,
