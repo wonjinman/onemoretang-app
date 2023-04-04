@@ -4,6 +4,7 @@ type Profile = 'local' | 'beta' | 'prod'
 
 const API_SERVER_BASE_URL = Config.API_SERVER_BASE_URL
 const API_DOMAIN_MAIN_SPRING = Config.API_DOMAIN_MAIN_SPRING
+const API_DOMAIN_MAIN_NODE = Config.API_DOMAIN_MAIN_NODE
 const API_SERVERLESS_BASE_URL = Config.API_SERVERLESS_BASE_URL
 const ONESIGNAL_APP_ID = Config.ONESIGNAL_APP_ID
 
@@ -25,8 +26,10 @@ export const ENV = {
 	IS_PRODUCTION: !__DEV__,
 	API_SERVER_BASE_URL:
 		process.env.NODE_ENV === 'test' ? 'http://localhost:8000' : `https://${API_SERVER_BASE_URL}`,
-	API_SERVER_SETTLEMENT_BASE_URL:
+	API_SERVER_SPRING_BASE_URL:
 		process.env.NODE_ENV === 'test' ? 'http://localhost:8000' : `https://${API_DOMAIN_MAIN_SPRING}`,
+	API_SERVER_NODE_BASE_URL:
+		process.env.NODE_ENV === 'test' ? 'http://localhost:8000' : `https://${API_DOMAIN_MAIN_NODE}`,
 	SERVERLESS_BASE_URL:
 		process.env.NODE_ENV === 'test'
 			? 'http://localhost:8000'
