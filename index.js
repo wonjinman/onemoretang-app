@@ -14,4 +14,4 @@ app = codePush({
 	installMode: codePush.InstallMode.ON_NEXT_RESTART,
 	mandatoryInstallMode: codePush.InstallMode.IMMEDIATE,
 })(app)
-AppRegistry.registerComponent(appName, () => App)
+AppRegistry.registerComponent(appName, () => app)
