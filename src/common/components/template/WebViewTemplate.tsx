@@ -23,6 +23,7 @@ const WebViewTemplate = (props: WebViewProps) => {
 		uri: ENV.WEB_URL,
 	}
 
+
 	const [webviewKey, setWebviewKey] = useState<number>(0)
 	const reload = () => {
 		setWebviewKey(webviewKey + 1)
@@ -121,6 +122,7 @@ const WebViewTemplate = (props: WebViewProps) => {
 				apiServerBaseURL: ENV.API_SERVER_BASE_URL,
 				mainNodeApiServerBaseURL: ENV.API_SERVER_NODE_BASE_URL,
 				mainSpringApiServerBaseURL: ENV.API_SERVER_SPRING_BASE_URL,
+				profile: ENV.PROFILE,
 			},
 		})
 	}

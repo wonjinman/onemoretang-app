@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React, {useEffect, useMemo, useRef} from 'react'
 import WebViewTemplate from '../common/components/template/WebViewTemplate'
 import { View, Text } from 'react-native'
 import { getStatusBarHeight } from 'react-native-safearea-height'

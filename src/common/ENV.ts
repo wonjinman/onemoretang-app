@@ -24,8 +24,7 @@ const ONESIGNAL_APP_ID = Config.ONESIGNAL_APP_ID
 export const ENV = {
 	PROFILE: (__DEV__ ? `dev_${Config.PROFILE}` : Config.PROFILE) as Profile,
 	IS_PRODUCTION: !__DEV__,
-	API_SERVER_BASE_URL:
-		process.env.NODE_ENV === 'test' ? 'http://localhost:8000' : `https://${API_SERVER_BASE_URL}`,
+	API_SERVER_BASE_URL: `${API_SERVER_BASE_URL}`,
 	API_SERVER_SPRING_BASE_URL:
 		process.env.NODE_ENV === 'test' ? 'http://localhost:8000' : `https://${API_DOMAIN_MAIN_SPRING}`,
 	API_SERVER_NODE_BASE_URL:
