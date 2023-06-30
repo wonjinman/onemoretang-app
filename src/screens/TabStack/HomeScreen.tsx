@@ -1,8 +1,8 @@
-import React, {useEffect, useMemo, useRef} from 'react'
-import WebViewTemplate from '../common/components/template/WebViewTemplate'
+import React, { useEffect, useMemo, useRef } from 'react'
+import WebViewTemplate from '../../common/components/template/WebViewTemplate'
 import { View, Text } from 'react-native'
 import { getStatusBarHeight } from 'react-native-safearea-height'
-import { ENV } from '../common/ENV'
+import { ENV } from '../../common/ENV'
 
 const HomeScreen = () => {
 	return (

@@ -7,7 +7,7 @@ import LoginScreen from './src/screens/LoginScreen'
 import { useAuthStore } from './src/driver/stores'
 import { _navigationRef, setIsNavigationReady } from './src/common/navigation'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import HomeScreen from './src/screens/HomeScreen'
+import HomeScreen from './src/screens/TabStack/HomeScreen'
 import WebViewScreen from './src/screens/WebViewScreen'
 import { Alert, Linking, Platform, StyleSheet } from 'react-native'
 import UploadReceiptScreen from './src/screens/UploadReceiptScreen'
@@ -15,10 +15,14 @@ import GetPhotoScreen from './src/screens/GetPhotoScreen'
 import remoteConfig from '@react-native-firebase/remote-config'
 import DeviceInfo from 'react-native-device-info'
 import * as Sentry from '@sentry/react-native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import ChatScreen from './src/screens/TabStack/ChatScreen'
+import FreightInformationScreen from './src/screens/TabStack/FreightInformationScreen'
+import CommerceScreen from './src/screens/TabStack/CommerceScreen'
 
 export type MainStack = {
 	LoginScreen: undefined
-	HomeScreen: undefined
+	TabStack: undefined
 	ReceiptCameraScreen: undefined
 	WebViewScreen: {
 		url: string
@@ -30,9 +34,57 @@ export type MainStack = {
 	}
 	GetPhotoScreen: { onGetBack: (picture: any) => void }
 }
+
+export type TabStack = {
+	HomeScreen: undefined
+	ChatScreen: undefined
+	FreightInformationScreen: undefined
+	CommerceScreen: undefined
+}
+
 type WebviewType = NativeStackScreenProps<MainStack, 'WebViewScreen'>
 
 const Stack = createNativeStackNavigator<MainStack>()
+const Tab = createBottomTabNavigator<TabStack>()
+
+function TabStack() {
+	return (
+		<Tab.Navigator
+			screenOptions={{
+				unmountOnBlur: true,
+				header: () => null,
+			}}>
+			<Tab.Screen
+				name="HomeScreen"
+				component={HomeScreen}
+				options={{
+					title: '화물조회',
+				}}
+			/>
+			<Tab.Screen
+				name="ChatScreen"
+				component={ChatScreen}
+				options={{
+					title: '게시판',
+				}}
+			/>
+			<Tab.Screen
+				name="FreightInformationScreen"
+				component={FreightInformationScreen}
+				options={{
+					title: '화물정보',
+				}}
+			/>
+			<Tab.Screen
+				name="CommerceScreen"
+				component={CommerceScreen}
+				options={{
+					title: '커머스',
+				}}
+			/>
+		</Tab.Navigator>
+	)
+}
 
 function App(): JSX.Element {
 	const queryClientRef = useRef<QueryClient>()
@@ -114,14 +166,9 @@ function App(): JSX.Element {
 					screenOptions={{
 						headerBackTitleVisible: false,
 					}}>
-					{/*<Stack.Screen*/}
-					{/*	name={'LoginScreen'}*/}
-					{/*	component={LoginScreen}*/}
-					{/*	options={{ headerShown: false, headerBackTitleVisible: false }}*/}
-					{/*/>*/}
 					<Stack.Screen
-						name={'HomeScreen'}
-						component={HomeScreen}
+						name={'TabStack'}
+						component={TabStack}
 						options={{ headerShown: false, headerBackTitleVisible: false }}
 					/>
 					<Stack.Screen
