@@ -116,8 +116,8 @@ android {
             applicationId "io.nextruck.trucker"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 15
-            versionName "1.1.0"
+            versionCode 16
+            versionName "1.1.1"
             resValue "string", "build_config_package", "io.nextruck.trucker"
 
             // [MGS] 이 줄이 없으면 Error in getting binary resources modified time 에러가 뜨면서 업데이트를 받아와도 반영이 안 된다

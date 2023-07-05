@@ -9,7 +9,7 @@ import { _navigationRef, setIsNavigationReady } from './src/common/navigation'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import HomeScreen from './src/screens/TabStack/HomeScreen'
 import WebViewScreen from './src/screens/WebViewScreen'
-import { Alert, Linking, Platform, StyleSheet } from 'react-native'
+import { Alert, Image, Linking, Platform, StyleSheet } from 'react-native'
 import UploadReceiptScreen from './src/screens/UploadReceiptScreen'
 import GetPhotoScreen from './src/screens/GetPhotoScreen'
 import remoteConfig from '@react-native-firebase/remote-config'
@@ -53,12 +53,24 @@ function TabStack() {
 			screenOptions={{
 				unmountOnBlur: true,
 				header: () => null,
+				tabBarLabelStyle: {
+					fontWeight: 'bold',
+				},
 			}}>
 			<Tab.Screen
 				name="HomeScreen"
 				component={HomeScreen}
 				options={{
 					title: '화물조회',
+					tabBarIcon: () => (
+						<Image
+							source={require('./src/resources/icons/magnifying-glass.png')}
+							style={{
+								width: 28,
+								height: 28,
+							}}
+						/>
+					),
 				}}
 			/>
 			<Tab.Screen
@@ -66,6 +78,15 @@ function TabStack() {
 				component={ChatScreen}
 				options={{
 					title: '게시판',
+					tabBarIcon: () => (
+						<Image
+							source={require('./src/resources/icons/communities.png')}
+							style={{
+								width: 28,
+								height: 28,
+							}}
+						/>
+					),
 				}}
 			/>
 			<Tab.Screen
@@ -73,6 +94,15 @@ function TabStack() {
 				component={FreightInformationScreen}
 				options={{
 					title: '화물정보',
+					tabBarIcon: () => (
+						<Image
+							source={require('./src/resources/icons/delivery.png')}
+							style={{
+								width: 28,
+								height: 28,
+							}}
+						/>
+					),
 				}}
 			/>
 			<Tab.Screen
@@ -80,6 +110,15 @@ function TabStack() {
 				component={CommerceScreen}
 				options={{
 					title: '커머스',
+					tabBarIcon: () => (
+						<Image
+							source={require('./src/resources/icons/shopping-cart.png')}
+							style={{
+								width: 28,
+								height: 28,
+							}}
+						/>
+					),
 				}}
 			/>
 		</Tab.Navigator>
